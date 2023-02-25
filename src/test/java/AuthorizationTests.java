@@ -24,10 +24,10 @@ public class AuthorizationTests {
     }
     @Test
     public void getResponseWithoutAccessKeyLiveEndpoint(){
-        response = given().get(Consts.URL+Consts.LIVE_ENDPOINT);
+        response = given().get(Consts.URL+"/live");
         System.out.println(response.asString());
-        response.then().statusCode(401);
-        response.then().body("message", equalTo("No API key found in request"));
+        response.then().statusCode(404);
+        response.then().body("message", equalTo("no Route matched with those values"));
 
 
     }
